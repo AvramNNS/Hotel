@@ -1,0 +1,551 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background: #000;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+ header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(20px);
+    z-index: 1000;
+    border-bottom: 1px solid #333;
+ }
+
+ nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 0;
+ }
+
+ .logo {
+    font-size: 2rem;
+    font-weight: 300;
+    color: #fff;
+    text-decoration: none;
+    letter-spacing: 3px;
+ }
+
+
+ .nav-links {
+    display: flex;
+    list-style: none;
+    gap: 3rem;
+ }
+
+
+ .nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 300;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    position: relative;
+ }
+
+ .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: #fff;
+    transition: width 0.3s ease;
+ }
+
+ .nav-links a:hover::after {
+ width: 100%;
+ }
+
+ .hero {
+    height: 100vh;
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect width="1200" height="800" fill="%23000"/><rect x="0" y="0" width="1200" height="400" fill="%23111"/><rect x="0" y="400" width="1200" height="400" fill="%23222"/></svg>');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    position: relative;
+ } 
+
+
+ .hero-content h1 {
+    font-size: 5rem;
+    font-weight: 100;
+    margin-bottom: 2rem;
+    letter-spacing: 5px;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1.5s ease forwards;
+ }
+
+
+ .hero-content p {
+    font-size: 1.3rem;
+    margin-bottom: 3rem;
+    font-weight: 300;
+    letter-spacing: 2px;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1.5s ease 0.5s forwards;
+ }
+
+ .cta-button {
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+    padding: 1.2rem 3rem;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 300;
+    letter-spacing: 2px;
+    transition: all 0.4s ease;
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1.5s ease 1s forwards;
+ }
+
+
+ .cta-button:hover {
+    background: white;
+    color: black;
+    transform: translateY(-2px);
+ }
+
+ .rooms {
+    padding: 8rem 0;
+    background: #fff;
+ }
+
+ .section-title {
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 100;
+    margin-bottom: 4rem;
+    color: #000;
+    letter-spacing: 3px;
+ }
+
+ .rooms-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    gap: 4rem;
+    margin-top: 4rem;
+ }
+
+ .room-card {
+    background: #000;
+    color: white;
+    overflow: hidden;
+    transition: all 0.5s ease;
+    cursor: pointer;
+    border: 1px solid #333;
+ }
+
+ .room-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+ }
+
+ .room-image {
+    height: 300px;
+    background: linear-gradient(45deg, #000, #333);
+    position: relative;
+    overflow: hidden;
+ }
+
+
+ .room-image {
+    height: 300px;
+    background: linear-gradient(45deg, #000, #333);
+    position: relative;
+    overflow: hidden;
+ }
+
+ .room-image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300"><rect width="400" height="300" fill="%23111"/><rect x="50" y="80" width="300" height="140" fill="%23222" stroke="%23444" stroke-width="2"/><rect x="80" y="100" width="80" height="60" fill="%23333"/><rect x="240" y="100" width="80" height="60" fill="%23333"/><rect x="160" y="180" width="80" height="40" fill="%23444"/></svg>');
+    background-size: cover;
+    opacity: 0.8;
+ }
+
+ .room-info {
+    padding: 2.5rem;
+ }
+
+ .room-title {
+    font-size: 1.8rem;
+    font-weight: 300;
+    margin-bottom: 1.5rem;
+    letter-spacing: 2px;
+ }
+
+ .room-description {
+    color: #ccc;
+    margin-bottom: 2rem;
+    font-weight: 300;
+    line-height: 1.8;
+    font-weight: 300;
+ }
+
+ .room-price {
+    font-size: 2rem;
+    font-weight: 100;
+    margin-bottom: 2rem;
+    letter-spacing: 1px;
+ }
+
+ .book-button {
+    background: transparent;
+    color: white;
+    border: 1px solid white;
+    padding: 1rem 2.5rem;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 300;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    width: 100%;
+ }
+
+ .book-button:hover {
+    background: white;
+    color: black;
+ }
+
+ .modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.95);
+    backdrop-filter: blur(10px);
+ }
+
+ .modal-content {
+    background: #000;
+    color: white;
+    margin: 3% auto;
+    padding: 3rem;
+    border: 1px solid #333;
+    width: 90%;
+    max-width: 600px;
+    position: relative;
+    animation: modalSlideIn 0.5s ease;
+ }
+
+ .close {
+    position: absolute;
+    right: 2rem;
+    top: 2rem;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #fff;
+    font-weight: 100;
+ }
+
+ .close:hover {
+    color: #ccc;
+ }
+
+ .modal h2 {
+    font-size: 2.5rem;
+    font-weight: 100;
+    margin-bottom: 2rem;
+    letter-spacing: 2px;
+ }
+
+
+ .form-group {
+    margin-bottom: 2rem;
+ }
+
+ .form-group label {
+    display: block;
+    margin-bottom: 0.8rem;
+    font-weight: 300;
+    letter-spacing: 1px;
+    color: #ccc;
+ }
+
+ .form-group input,
+ .form-group select {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid #333;
+    background: #111;
+    color: white;
+    font-size: 1rem;
+    font-weight: 300;
+    transition: border-color 0.3s ease;
+ }
+
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #fff;
+}
+
+.submit-booking {
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+    padding: 1.2rem 3rem;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: 300;
+    letter-spacing: 2px;
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+
+.submit-booking:hover {
+    background: white;
+    color: black;
+}
+
+.success-modal {
+    display: none;
+    position: fixed;
+    z-index: 3000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.95);
+    backdrop-filter: blur(10px);
+}
+
+.success-content {
+    background: linear-gradient(135deg, #000, #1a1a1a);
+    color: white;
+    margin: 10% auto;
+    padding: 4rem;
+    border: 2px solid #00ff00;
+    width: 90%;
+    max-width: 500px;
+    text-align: center;
+    position: relative;
+    animation: successSlideIn 0.6s ease;
+    box-shadow: 0 0 50px rgba(0, 255, 0, 0.3);
+}
+
+.success-icon {
+    font-size: 4rem;
+    color: #00ff00;
+    margin-bottom: 1.5rem;
+    animation: successPulse 1.5s infinite;
+}
+
+.success-title {
+    font-size: 2.5rem;
+    font-weight: 100;
+    margin-bottom: 1rem;
+    letter-spacing: 2px;
+    color: #00ff00;
+}
+
+.success-message {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    color: #ccc;
+    line-height: 1.6;
+}
+
+.success-close {
+    background: transparent;
+    color: #00ff00;
+    border: 2px solid #00ff00;
+    padding: 1rem 2rem;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 300;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.success-close:hover {
+    background: #00ff00;
+    color: #000;
+}
+
+.amenities {
+    padding: 8rem 0;
+    background: #111;
+    color: white;
+}
+
+
+.amenities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 3rem;
+    margin-top: 4rem;
+}
+
+.amenity-card {
+    text-align: center;
+    padding: 3rem 2rem;
+    background: #000;
+    border: 1px solid #333;
+    transition: all 0.3s ease;
+}
+
+.amenity-card:hover {
+    transform:  translateY(-5px);
+    border-color: #fff;
+}
+
+.amenity-icon {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+}
+
+.amenity-card h3 {
+    font-size: 1.5rem;
+    font-weight: 300;
+    margin-bottom: 1rem;
+    letter-spacing: 1px;
+}
+
+.amenity-card p {
+    color: #ccc;
+    font-weight: 300;
+    line-height: 1.6;
+}
+
+
+footer {
+    background: #000;
+    color: white;
+    padding: 4rem 0;
+    border-top: 1px solid #333;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 3rem;
+    margin-bottom: 3rem;
+}
+
+
+.footer-section h3 {
+    margin-bottom: 1.5rem;
+    font-weight:  300;
+    letter-spacing: 1px;
+}
+
+.footer-section p {
+    margin-bottom: 0.5rem;
+    color: #ccc;
+    font-weight: 300;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid #333;
+    color: #666;
+    font-weight: 300;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+@keyframes modalSlideIn {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 3rem;
+        letter-spacing: 3px;
+    }
+    .hero-content p {
+        font-size: 1.1rem;
+    }
+    .nav-links {
+        display: none;
+    }
+
+    .rooms-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+}
+
+
+.scroll-reveal {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 1s ease;
+}
+
+
+.scroll-reveal.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #111;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
